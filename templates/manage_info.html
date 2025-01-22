@@ -1,0 +1,73 @@
+{% extends "base.html" %} 
+{% block title %}Home{% endblock %}
+{% block head %}
+<script>
+    function notify(){
+        if (confirm("A nota será deletada! Tem certeza?")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+
+{% endblock %}
+{% block content
+    %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <br>
+    <h3 align="stat">Manager</h3>
+    <p>Here you can manage all the information that is shown on this website</p>
+    <hr>
+   
+    <table class="table table-hover">
+        <thead class = "text-white">
+            <tr class="table-school-op">
+              <th scope="col">Nota</th>
+              <th scope="col">Feita por:</th>
+              <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in data %}
+            <tr>
+                <td>{{ d.note }}</td>
+                <td>User {{ d.user_id }}</td>
+                <td><form method="POST" action = 'delete/'>
+                    <input type="hidden" class="form-control" id = 'id' name = 'id' value='{{ d.id }}'></input>
+                    <button class="btn" id="button" onclick="let yes=notify();return yes;"><i class="fa fa-trash"></i></button></td></form>
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+    <hr>
+    <table class="table table-hover">
+        <thead class = "text-white">
+            <tr class="table-school-op">
+              <th scope="col">Livro</th>
+              <th scope="col">Aluno</th>
+              <th scope="col">Data de entrega</th>
+              <th scope="col">Dias que faltam</th>
+              <th scope="col">Deletar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for b in borrows %}
+            <tr class = {{ b[1] }} >
+                <td>{{ b[0].books.title }}</td>
+                <td>{{ b[0].who }}</td>
+                <td>{{ b[0].end_date }}</td>
+                <td>{{ b[2] }}</td>
+                <td><form method="POST" action = 'delete_borrow/'>
+                    <input type="hidden" class="form-control" id = 'id' name = 'id' value='{{ b[0].id }}'></input>
+                    <button class="btn" id="button" onclick="let yes=notify();return yes;"><i class="fa fa-trash"></i></button></td></form></td>
+            
+                </tr>
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+    </ul>
+    <i class="bi bi-book"></i>
+{% endblock %}
+    

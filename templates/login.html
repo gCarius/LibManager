@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block content
+%}
+<div class="container"> 
+  <div class="row justify-content-center">
+    <div class="col-4">      
+      <form method="POST">
+          <br>
+          <br>
+          <h3 align="center">Admin Login</h3>
+          <br>
+          <p style='color: grey' align="center">
+            <i>This section is protected with a login, and is EXCLUSIVELY directed to the librarian</i>
+          </p>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="Enter email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              placeholder="Enter password"
+            />
+          </div>
+          <br>
+          <div class="d-grid col-6 mx-auto">
+            <button type="submit" class="btn btn-colour-1">Login</button>
+          </div>          
+        </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

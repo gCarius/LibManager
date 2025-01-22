@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}  
+<br>
+<h3 align="stat">About our library</h3>
+<hr>
+<p>Bem vindo a bilioteca do ZZZZZZZZ ZZZZZZZ, aqui se pode requisitar livros e explorar nossa coleçao</p>
+<br>
+<p class="fw-bold" >To facilitate your choice we have some notes from our librarians:</h3>
+<hr>
+<ul>
+  <div class="container overflow-hidden">
+    <div class="row gy-5">
+      {% for d in data %}
+      <div class="col-6">
+        <div class="p-3 border bg-light">{{ d.note }}</div>
+      </div>
+      {% endfor%}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+    <br>
+    <br>
+    <h2 align="middle">Hello admin, add a new note to the home</h2>   
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-4">       
+          <form method="POST">
+            <br>
+            <div class="form-group">
+                <h4>Enter your note</h4>
+                <label for="note"></label>
+                <textarea
+                type="text"
+                class="form-control"
+                id="note"
+                name="note"></textarea>
+            </div>
+            <br>
+            <div class="d-grid col-6 mx-auto">
+              <button type="submit" class="btn btn-colour-1">Add note</button>
+            </div>          
+        </form>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+    

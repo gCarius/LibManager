@@ -1,0 +1,92 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<br>
+<br>
+<h2 align="middle">Hello admin, here you can books to our database!</h2>   
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-4">   
+      <form method="POST">
+        <br>
+        <p style='color: grey'>
+          <i>This section is protected with a login, and is EXCLUSIVELY directed to the librarian</i>
+        </p>
+        <div class="form-group">
+          <label for="title">Titulo</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            placeholder="Enter the title"
+          />
+        </div>
+        <div class="form-group">
+            <label for="author">Autor</label>
+            <input
+              type="text"
+              class="form-control"
+              id="author"
+              name="author"
+              placeholder="Enter the author"
+            />
+        </div>
+        <div class="form-group">
+            <label for="editor">Editora</label>
+            <input
+              type="text"
+              class="form-control"
+              id="editor"
+              name="editor"
+              placeholder="Enter the editor"
+            />
+        </div>
+        <div class="form-group">
+            <label for="edition">Edição</label>
+            <input
+              type="text"
+              class="form-control"
+              id="edition"
+              name="edition"
+              placeholder="Enter the edition"
+            />
+        </div>
+        <div class="form-group">
+          <label for="method_aq">Metodo de Aquisição</label>
+          <input
+            type="text"
+            class="form-control"
+            id="method_aq"
+            name="method_aq"
+            placeholder="Enter the method_aq"
+          />
+        </div>
+        <div class="form-group">
+            <label for="entry_date">Data de Entrada</label>
+            <input
+              type="text"
+              class="form-control"
+              id="entry_date"
+              name="entry_date"
+              placeholder="Enter the entry_date"
+            />
+        </div>
+        <div class="form-group">
+            <label for="notes">Notes</label>
+            <input
+              type="text"
+              class="form-control"
+              id="notes"
+              name="notes"
+              placeholder="Enter the note"
+            />
+        </div>
+        <br>
+        <div class="d-grid col-6 mx-auto">
+          <button type="submit" class="btn btn-colour-1">Add book</button>
+        </div>          
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

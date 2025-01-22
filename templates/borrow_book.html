@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+    <br>
+    <br>
+    <h2 align="middle">Hello admin, Update the book list!</h2>   
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-4">   
+          <form method="POST">
+            <br>
+            <p style='color: grey'>
+              <i>This section is protected with a login, and is EXCLUSIVELY directed to the librarian to borrow selected books</i>
+            </p>
+            <div class="form-group">
+                <label for="title">Titulo</label>
+                <input type="text" class="form-control" id="title" name="title" value = "{% if book %}{{ book.title }}{% endif %}" {% if book %}readonly{% endif %}/>
+              </div>
+            <div class="form-group">
+                <label for="title">Numero de registro</label>
+                <input type="text" class="form-control" id="book_id" name="book_id" value = "{% if book %}{{ book.id }}{% endif %}" {% if book %}readonly{% endif %}/>
+              </div>
+            <div class="form-group">
+                <label for="who">Pessoa</label>
+                <input type="text" class="form-control" id="who" name="who"/>
+            </div>
+            <div class="form-group">
+                <label>Data de Entrega</label>
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" id="end_date_day" name="end_date_day" placeholder="Dia"/></div>
+                  <div class="col"> 
+                      <input type="text" class="form-control" id="end_date_month" name="end_date_month" placeholder="Mês"/></div>
+                  <div class="col">
+                      <input type="text" class="form-control" id="end_date_year"  name="end_date_year" placeholder="Ano"/></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="author">Email</label>
+                <input type="text" class="form-control" id="email" name="email"/>
+            </div>
+                <div class="form-group">
+                    <label for="notes">Notas</label>
+                    <input type="text" class="form-control" id="notes"  name="notes"/>
+                </div>
+            <br>
+            <div class="d-grid col-6 mx-auto">
+              <button type="submit" class="btn btn-colour-1">Borrow book</button>
+        </div>          
+        </form>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+    

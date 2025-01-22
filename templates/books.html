@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+<br>
+<h3 align="stat">Here you can find all the books...</h3>
+<form method = 'POST' class="row row-cols g-3 align-items-end">
+    <div class="col-10">
+      <div class="input-group">
+        <input type="text" class="form-control" id="quest" name = "quest">
+      </div>
+    </div>
+    <div class="col-auto" class = 'bg-school'>
+      <button type="submit" class="btn btn-colour-1">Search</button>
+    </div>
+  </form>
+<hr>
+<ul>
+  <table class="table table-hover">
+      <thead class = "text-white">
+        <tr class="table-school-op">
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Edition</th>
+          {% if user %}
+          <th scope="col">Action</th>
+          <th scope="col">Delete</th>
+          {% endif %}
+
+        </tr>
+      </thead>
+      <tbody>
+      {% for d in data %}   
+          <tr>
+            <td>{{ d.title }}</td>
+            <td>{% if d.author %} {{d.author.title()}} {% else %}Autor não definido{% endif %}</td>
+            <td>{{ d.edition }}</td>
+            {% if user %}
+            <td>
+              <form method="POST" action = "{{ url_for('borrow_book', book_id = d.id) }}">
+                <input type="hidden" class="form-control" id = 'id' name = 'start_borrow' value='{{ d.id }}'></input>
+                <button class="btn" id="button"><i class="bi bi-bookmark-star"></i></button></td></form>
+            </td>
+            <td>
+              <form method="POST" action = "{{ url_for('delete_book', book_id = d.id) }}">
+                <input type="hidden" class="form-control" id = 'id' name = 'delete_book' value='{{ d.id }}'></input>
+                <button class="btn" id="button"><i class="fa fa-trash"></i></button></td></form>
+            </td>
+            {% endif %}
+          </tr>
+      {% endfor%}
+      </tbody>
+    </table>
+</ul>
+
+{% endblock %}
